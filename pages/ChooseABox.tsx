@@ -63,7 +63,7 @@ const ChooseABox: FunctionComponent<Props> = (props) => {
     };
 
     const content = (
-        <Backdrop onClick={() => setGameState({ ...gameState, prevDropEvent: null })}>
+        <Backdrop onClick={setGameState.bind(this, { ...gameState, view: 1 })}>
             <WinContainer>
                 <img src={'img/d1.svg'} alt="puzzle" />
             </WinContainer>
