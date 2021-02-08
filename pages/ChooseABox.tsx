@@ -42,7 +42,11 @@ const ChooseABox: FunctionComponent<Props> = (props) => {
 
     const [items, setItems] = useState(defaultItems);
 
-    useEffect(() => { setItems(defaultItems); }, [ defaultItems ]);
+    useEffect(() => {
+        if (defaultItems.every((item, index) => items[index].src !== item.src)) {
+            setItems(defaultItems);
+        }
+    }, [defaultItems]);
 
     console.log(`items = ${JSON.stringify(items)}`)
 
